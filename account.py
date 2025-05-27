@@ -1,7 +1,7 @@
 
 class Account:
-    def __init__(self, owner):
-        self.owner = owner
+    def __init__(self, name):
+        self.name = name
         self.balance = 0.0
         self.transactions = []
         self.loan_amount = 0.0
@@ -30,7 +30,7 @@ class Account:
         if self.withdraw(amount) == "Insufficient funds to withdraw this amount.":
             return "Transfer failed: Insufficient funds."
         other_account.deposit(amount)
-        return f"Transferred {amount} to {other_account.owner}. New balance: {self.balance}"
+        return f"Transferred {amount} to {other_account.name}. New balance: {self.balance}"
 
     def get_balance(self):
         return f"Current balance: {self.balance}"
@@ -46,11 +46,11 @@ class Account:
         return f"Loan repaid: {amount}. Remaining loan amount: {self.loan_amount}"
 
     def view_account_details(self):
-        return f"Account Owner: {self.owner}, Current Balance: {self.balance}"
+        return f"Account Owner: {self.name}, Current Balance: {self.balance}"
 
-    def change_account_owner(self, new_owner):
-        self.owner = new_owner
-        return f"Account owner changed to: {self.owner}"
+    def change_account_name(self, new_name):
+        self.name = new_name
+        return f"Account owner changed to: {self.name}"
 
     def account_statement(self):
         statement = "Account Transactions:\n"
